@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/iconfont.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding:0；
+        }
+        li{
+            list-style: none;
+        }
+        #box{
+            width: 3710px;
+            height: 2030px;
+            background: #fef3f3;
+            padding: 65px;
+        }
+        .body{
+           
+            background: #fff;
+            border-radius: 10px;
+            height: 100%;
+            box-shadow: -2px 11px 20px 5px #888888;
+        }
+        .nav{
+            width: 590px;
+            margin: 0 55px;
+            float: left;
+        }
+        .nav ul{
+            background: #f6f4f4;
+            padding: 0;
+        }
+        .nav h2{
+            display: inline-block;
+            color: #f23c48;
+            height: 135px;
+            line-height: 135px;
+            font-size: 32px;
+        }
+        .clearfix{
+            clear: both;
+        }
+        .nav li{
+            height: 100px;
+            padding-left: 40px;
+            line-height: 100px;
+            text-align: left;
+            border-bottom:1px dashed #ccc;
+            font-size: 26px;
+            color: #4a4a4a;
+            position: relative
+        }
+        .nav li i{
+           position: absolute;
+           font-size: 28px;
+           right: 10px; 
+           top: 5px;
+        }
+        .echarts{
+            margin-top: 135px;
+            float: left;
+            width: 2965px;
+            height: 1840px;
+            background: #f6f4f4!important;
+            position: relative;
+        }
+        .echarts i{
+            position: absolute;
+            font-size: 46px;
+            right: 1%;;
+            top:-5%;;
+        }
+        .active{
+            color: #fff !important;
+            background: #f23c48;
+        }
+        .hide{
+            display: none;
+        }
+        #echart,#echart1,#echart2,#echart3,#echart4,#echart5,#echart6,#echart7,#echart8,#echart9,#echart10,#echart11,#echart12,#echart13,#echart14,#echart15{
+            height: 1800px;
+            width: 2900px
+        }
+    </style>
+
+</head>
+<body id="box">
+    <div class="body clearfix">
+        <div class="nav">
+            <h2>详细信息</h2>
+            <ul>
+                <li>组织生活总次数<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员年龄<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员性别<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>参与形式<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员类别<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员民族<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>本月开展组织生活次数净增减及比例<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>组织生活类型<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员学历<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>支部类型<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员党龄<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>下属党组织开展次数<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>党员岗位<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>本月组织生活参与人次<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                <li>本月组织生活参与人数<i class="icon iconfont icon-jiantouarrow487"></i></li>
+            </ul>
+        </div>
+        <div class="echarts">
+            <div class="chart hide">
+                <div id="echart"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart1"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart2"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart3"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart4"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart5"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart6"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart7"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart8"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart9"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart10"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart11"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart12"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart13"></div>
+            </div>
+            <div class="chart hide">
+                <div id="echart14"></div>
+            </div>
+            <i id="return" class="icon iconfont icon-ai207"></i>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.4/echarts-en.common.js"></script>
+    <script src="js/ezhibu.js"></script>
+</body>
+
+</html>

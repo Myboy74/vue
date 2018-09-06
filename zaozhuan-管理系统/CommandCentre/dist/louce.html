@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>“灯塔-枣庄党建在线”指挥调度中心</title>
+    <style>
+        body{
+            padding: 20px;
+            overflow: scroll;
+            background: #f0f0ef
+        }
+    #lsbox{
+        width: 3840px;
+        height: 2160px;
+        overflow: hidden;
+        padding:140px;
+        position: relative; 
+    }
+    .mks{
+        width: 772px;
+        height: 2160px;
+        float: left;
+        position: relative;
+    }
+    #lsbox h1{
+      color:#f62a01;
+      font-size: 50px;
+
+    }
+    #fl,.fls{
+        float: left;
+    }
+    .fls{
+        margin-left:250px;
+    }
+    #lcolse{
+        font-size: 35px;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius:5%;
+        color: #f62a01;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+
+    }
+    .fg{
+        width: 95px;
+        height: 40px;
+        position: absolute;
+        right: 300px;
+        top: 565px;
+       cursor: pointer;
+        z-index: 1000;
+    }
+    </style>
+</head>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<body>
+        <div id="lsbox">
+            <div id="fl">
+                <h1>某某某大厦</h1>
+                <div class="mks">
+                    <div class="fg lspsd">
+                        
+                    </div>
+                    <img src="images/lou1.png" alt="">
+                </div>     
+            </div>
+            <div class="fls ">
+                <img src="images/lou2.png" alt="">
+            </div>
+            <div id="lcolse">
+                返回
+            </div>
+        </div>
+</body>
+<script>
+    $('#lcolse').click(function (){
+        location.href='index2.html';
+    })
+    $('.lspsd').click(function (){
+			$.ajax({
+                //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "http://zhumu.ningguoteng.com/Hstg.php",//url
+                data: {'userName':'fsjxsdk05'},
+                success: function (data) {
+					console.log(data); 
+					window.open("http://ws.fsmeeting.com/roomMgr/entermeeting.jsp?roomID="+data.roomId+"&userName=fsjxsdk01&userPwd=123456","_blank");
+                }
+            });
+		})
+</script>
+</html>

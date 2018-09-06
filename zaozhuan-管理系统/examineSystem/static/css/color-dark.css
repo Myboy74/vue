@@ -1,0 +1,82 @@
+.header{
+    background-color: #242f42;
+}
+.login-wrap{
+    background: #324157;
+}
+.plugins-tips{
+    background: #eef1f6;
+}
+.plugins-tips a{
+    color: #20a0ff;
+}
+.el-upload--text em {
+    color: #20a0ff;
+}
+.pure-button{
+    background: #20a0ff;
+}
+
+
+
+/**表单字体居中并只显示2行，多余的省略号*/
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-height: 50px;
+}
+/*分页*/
+.pagination{
+    line-height: 30px;
+}
+.pagination .el-pagination{
+    float: right;
+}
+/*周报月报小图标*/
+.f_title{
+    font-size: 20px;
+    padding-left: 35px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.f_title::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-image: url("../../static/img/f_icon.png");
+    position: absolute;
+    top: 2px;
+    left: -5px;
+}
+/*周报月报添加页面  重点工作  工作成效 输入框*/
+.top .el-textarea__inner{
+    height: 100px;
+}
+.top .el-textarea__inner{
+    padding-top: 10px;
+}
+
+ul,ul li{
+    list-style: none;
+}
+
+/*本周周报， 本月月报 所有*/
+.el-tabs__nav-scroll,.el-tabs__nav{
+    width: 100%;
+}
+.f_tab .is-active,.f_tab .el-tabs__item{
+    width: 25.5%;
+    text-align: center;
+}
+.f_tab .el-radio ,.f_top .el-radio{
+    padding-right: 20px;
+}
+.f_tab .f_otn ,.f_top .f_otn{
+    margin-right: 10px;
+    position: absolute;
+    top: -5px;
+    left: 20px;
+}

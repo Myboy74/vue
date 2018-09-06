@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>指挥调度中心</title>
+		<link rel="stylesheet" href="css/css.css" />
+		<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="w_con" style="position: relative; top: 0; left: 0;">
+			<div class="w_login">
+				<div class="w_login_tit">
+					<p>“灯塔-枣庄党建在线”</p>
+					<p>指挥调度中心</p>
+				</div>
+				<div class="w_login_name">
+					<div class="w_login_nat clearfix">
+						<label class="w_fl"><img src="img/username.png" style="margin-top: 32px; margin-left: 10px;"/></label>
+						<input type="text" placeholder="用户名" class="w_username w_fl" />
+					</div>
+					<div class="w_login_nat clearfix">
+						<label class="w_fl"><img src="img/password.png" style="margin-top: 32px; margin-left: 10px;"/></label>
+						<input type="password" placeholder="密码" class="w_userpw w_fl"  />
+					</div>
+					<div class="w_login_lo">
+						登&nbsp;录
+					</div>
+					
+					<!--<div class="w_login_losssss" style="width: 60px; height: 50px; background: #fff;">
+						测试
+					</div>-->
+					
+				</div>
+			</div>
+			<div class="ssss w_tanchu" >
+				<div id="msg"  ></div>
+				<div style="margin: 0 auto; width: 640px;height: 50px; ">
+					<button onclick="queding(1)" class="w_dengu w_fl" ><span>确定</span></button>
+					<button onclick="queding(2)" class="w_dengu w_fr" ><span>取消</span></button>
+				</div>
+			</div>
+		</div>		
+	</body>
+	<script>
+//		sessionStorage.setItem('w_url','http://10.1.1.134');
+//		sessionStorage.setItem('w_url','http://192.168.101.149:8080');
+		sessionStorage.setItem('w_url','http://10.1.1.150:8083')
+//********更改接口注意事项    ******** ajax.js ********   login.html********	
+//********更改接口注意事项    ******** ajax.js ********   login.html********
+//********更改接口注意事项    ******** ajax.js ********   login.html********
+		var w_url=sessionStorage.getItem('w_url');
+		var json={}
+		$('.w_login_lo').click(function(){
+			if($('.w_username').val().trim()==''){
+				alert('用户名不能为空')
+				return
+			}else if($('.w_userpw').val().trim()==''){
+				alert('密码不能为空')
+				return  
+			}else{
+				json.username=$('.w_username').val().trim().toUpperCase();
+				json.password=$('.w_userpw').val();
+			}
+			
+			$.ajax({
+				type:"get",
+				url:w_url+"/cic/user/login?username="+json.username+"&password="+json.password+"&qzLogin=1111",
+//				data:json,
+				success:function(da){
+//					console.log(da);
+//					console.info(da.data);
+//					alert(2);
+					
+					if(da.code=='1'){
+//						alert(da.msg)
+						$('.ssss').show();
+						$('#msg').html(da.msg);	
+					}else if(da.code=='200'){
+//						alert(da.msg);
+//						console.log(da);
+						if(da.data.loginToken){
+							sessionStorage.setItem('loginToken',da.data.loginToken);
+//							sessionStorage.setItem('manageOrgId',da.data.user.manageOrgId)
+						}
+//						console.log('第一次')
+						window.location.href='dangyuan.html'
+					}else{
+						alert(da.msg)
+					}
+//					if(da.data!=null){
+//						window.location.href=da.data.url;
+//					}
+
+//					if(da.loginToken){
+//						sessionStorage.setItem('loginToken',da.loginToken)
+//					}
+//					alert(da.data);
+				},
+				error:function(err){
+					console.log(err)
+				}
+			});
+		})
+		function queding(id){
+			if(id=='1'){
+				$('.ssss').hide();
+				$.ajax({
+					type:"get",
+					url:w_url+"/cic/user/login?username="+json.username+"&password="+json.password+"&qzLogin=force_login",
+					success:function(data){
+//						console.log(data);
+						if(data.code==200){
+//							alert(data.msg)
+//console.log(data);
+							if(data.data.loginToken){
+								sessionStorage.setItem('loginToken',data.data.loginToken);
+//								sessionStorage.setItem('manageOrgId',data.data.user.manageOrgId)
+							}
+							if(data.data!=null){
+//								console.log('第儿次')
+								window.location.href='dangyuan.html';
+							}
+							
+						}
+						
+					},
+					err:function(err){
+						console.log(err)
+					}
+				});
+			}else{
+				$('.ssss').hide();
+			}
+		}
+//		$('.w_login_losssss').click(function(){
+//			$.ajax({
+//					type:"get",
+//					url:"http://192.168.101.139:8080/cic/party_member/member_counts?orgCode=1111",
+//					success:function(data){
+//						console.log(data);
+//						if(data.code==200){
+//							alert(data.msg)
+//						}						
+//					},
+//					err:function(err){
+//						console.log(err)
+//					}
+//			});
+//		})
+		
+		//			$.ajax({
+//				type:"get",
+//				url:"http://192.168.101.139:8080/cic",
+//				data:'',
+//				success:function(data){
+//					console.log(data)
+//				},
+//				error:function(err){
+//					console.log(err)
+//				}
+//
+//			});
+		
+	</script>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<title>“灯塔-枣庄党建在线”指挥调度中心</title>
+		<link type="text/css" rel="styleSheet"  href="css/map.css" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=guUOuSHuGppDzYKvOIa5Yp7R"></script>
+		<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+		<style>
+			
+			.lpos{
+				position: relative;
+			}
+			.lzg{
+				width: 370px;
+				height: 60px;
+				position: absolute;
+				right: 33px;
+				top: 102px;
+				cursor: pointer;
+			}
+			.lzgs{
+				width: 95px;
+			    height: 40px;
+			    position: absolute;
+			    top: 420px;
+			    right: 250px;
+				cursor: pointer;
+			}
+			.lslds{
+				top: 474px;				
+			}
+			.lkmhj{
+				position: absolute;
+				width: 155px;
+			    height: 40px;
+				cursor: pointer;
+				bottom:20px;
+			    right: 340px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="con">
+			<div id="container">
+			</div>
+			<div class="w_l_t"></div>
+			<ul class="w_top_right_r ">
+				<li>
+					<a href="图表统计/1.html">
+						<div class="w_tubiao"></div>
+						<p class="w_name_tu">图表模式</p>
+					</a>
+				</li>
+				<li>
+					<a href="map2.html">
+						<div class="w_ditu"></div>
+						<p class="w_name_tu">地图模式</p>
+					</a>
+				</li>
+				<li>
+					<a href="control.html">
+						<div class="w_jiankong"></div>
+						<p class="w_name_tu">实时监控</p>
+					</a>
+				</li>
+				<li>
+					<a href="index.html">
+						<div class="w_tuichu"></div>
+						<p class="w_name_tu">退出</p>
+					</a>
+				</li>
+			</ul>
+			
+			<div class="w_top_right_l ">
+				<div class="w_img_c">
+					<div class="w_img_now">
+					
+					</div>
+				</div>
+				
+				<div class="w_adress">
+					<p class="w_adress_t">当前区域</p>
+					<p class="w_adress_con"><span>山东省</span>--<span class="w_tit">枣庄市</span></p>
+				</div>
+			</div>
+			<div class="w_bt_l ">
+				<div class="w_bt_red xiaqu2">
+					<div class="w_xiangxia"></div>
+				</div>
+				<div class="w_bt_red shanglai2" style="display: none;">
+					<div class="w_xiangshang shanglai2"></div>
+				</div>
+				<ul class="w_bt_con_ul clearfix">
+					<li class="w_bt_con_li">
+						<div class="w_bt_con w_dangzhibu1">
+							<div class="w_di_hide2">
+								<span></span><span>先锋党支部排行榜</span>
+							</div>
+							<div class="w_bt_center">
+								<ul class="w_san clearfix">
+									<li>
+										<p>692</p>
+										<p>中心数</p>
+									</li>
+									<li>
+										<p>692</p>
+										<p>服务次数</p>
+									</li>
+									<li>
+										<p>692</p>
+										<p>党建活动数</p>
+									</li>
+								</ul>
+								<div class="w_bt_pai">
+									<span></span><span>先锋党支部排行榜</span>
+								</div>
+								<div class="w_bt_paiming clearfix">
+									<span>排名</span>
+									<span>党支部</span>
+									<span>积分</span>
+								</div>
+								<ul class="w_liebiao clearfix">
+									<li class="clearfix">
+										<span>1</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>2</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>3</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>1</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>2</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>3</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>1</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>2</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>3</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>1</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>2</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+									<li class="clearfix">
+										<span>3</span>
+										<span>某党群服务中心</span>
+										<span>867353</span>
+									</li>
+
+								</ul>
+							</div>
+							
+							
+						</div>
+						<div class="w_bb lpos w_dangzhibu2">
+							<div class="w_bt_xiangqing clearfix">
+								<div class="clearfix">
+									<div class="w_fanfan"></div>
+									<span class="w_zhibu">生命科学研究院党支部</span>
+								</div>
+								
+								<ul class="w_zhibu_yuyin clearfix">
+									<li class="w_fl clearfix">
+										<div class="w_fl w_ml15">语音通话</div><div class="w_fr w_img1"></div>
+									</li>
+									<li class="w_fr clearfix">
+										<div class="w_fl w_ml15">视频连线</div><div class="w_fr w_img2"></div>
+									</li>
+								</ul>
+								<div class="w_quanbu">
+									<div class="w_div">
+										党群服务中心坐落于金凤园区一起标准厂房职工综合服务楼负一层，室内面积约830平方米，其中，建有职工图书馆、综合服务窗口（站）、洗衣房、网吧、多功能会议室、开敞式洽谈休闲区、党建文化和企业…
+									</div>
+									<!--<div class="w_quanbuneirong">全部内容<i class="w_xiasanjiao"></i></div>-->
+								</div>
+								<div class="clearfix">
+									<span class="w_fuze">支部书记：</span><span class="w_fuze">傅为民</span><span class="w_bt_shipin w_fr"><i class="w_bt_imgss"></i></span><span class="w_bt_yuyin w_fr"><i class="w_bt_imgs"></i></span>
+								</div>
+								<div class="clearfix">
+									<span class="w_fuze">组织委员：</span><span class="w_fuze">傅为民</span><span class="w_bt_shipin w_fr"><i class="w_bt_imgss"></i></span><span class="w_bt_yuyin w_fr"><i class="w_bt_imgs"></i></span>
+								</div>
+								<div class="clearfix">
+									<span class="w_fuze w_fl">组织委员：</span>
+									<ul class="w_fl w_fuzes">
+										<li>陈某某</li>
+										<li>陈某ddd某</li>
+										<li>陈某ddd某</li>
+										<li>陈某ddd某</li>
+										<li>陈某ddd某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+										<li>陈某某</li>
+									</ul>
+								</div>
+								
+								<!--<div class="clearfix w_fuwu">
+									<div class="w_fl w_bt_fuwu">
+										<span>企业服务</span><span>6</span>项
+									</div>
+									<div class="w_fr w_bt_fuwu">
+										<span>企业服务</span><span>6</span>项
+									</div>
+									<div class="w_fl w_bt_fuwu">
+										<span>企业服务</span><span>6</span>项
+									</div>
+									<div class="w_fr w_bt_fuwu">
+										<span>企业服务</span><span>6</span>项
+									</div>
+									
+								</div>-->
+								<ul class="w_bt_lie">
+									<li><span class="w_lv">进行中</span><span class="w_ml30">两学一做视频会议</span><span class="w_bt_img"></span></li>
+									<li><span class="w_lan">进行中</span><span class="w_ml30">两学一做视频会议</span><span></span></li>
+									<li><span class="w_huang">进行中</span><span class="w_ml30">两学一做视频会议</span><span></span></li>
+									<li><span class="w_huang">进行中</span><span class="w_ml30">两学一做视频会议</span><span></span></li>
+									<li><span class="w_hong ">进行中</span><span class="w_ml30">两学一做视频会议</span><span></span></li>
+								</ul>
+								<div class="w_xiangq">查看详情</div>
+								
+							</div>
+							
+							
+							<div class="lzg lsops">
+							</div>
+							<div class="lsops lzgs ">
+							</div>
+							<div class="lsops lzgs  lslds">
+								</div>
+								<div class="lsops lkmhj">
+								</div>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="w_bt_r ">
+				<div class="w_bt_red xiaqu">
+					<div class="w_xiangxia "></div>
+				</div>
+				<div class="w_bt_red shanglai" style="display: none;">
+					<div class="w_xiangshang shanglai"></div>
+				</div>
+				<div class="w_bt_r_con">
+					<div class="w_di_hide">
+						<span>党支部</span><span>全部</span><span></span>
+					</div>
+					<div class="w_xiaoBG">
+						<div id="test">
+					        <select name="select1" id="select1" class="w_yiji">
+					        	<div class="w_sanjiao"></div>
+					            <option value="0" selected="selected">党支部</option>
+					            <option value="1">党群服务中心</option>
+					            <option value="2">志愿团队</option>
+					            <option value="3">志愿活动</option>
+					            <option value="4">微心愿</option>
+					            <option value="5">先锋网格</option>
+					            <option value="6">党建活动</option>
+					            <option value="7">困难帮扶</option>
+					            <option value="8">第一书记</option>
+					            <option value="9">经济薄弱村</option>
+					        </select>
+					        <select name="select2" id="select2" class="w_yijis">
+					            <option>全部</option>
+					            <option>农村</option>
+					            <option>机关</option>
+					            <option>高校</option>
+					            <option>社区</option>
+					            <option>两新</option>
+					            <option>国有企业</option>
+					            <option>非公</option>
+					        </select>
+					    </div> 
+					    <div class="w_fan"></div>
+						<div class="w_fan2"><i></i><h2>滕州市北辛街道</h2></div>
+						<div class="w_zhiDianJiS ">
+							<div class="w_TZ"></div>
+							<div class="w_ST"></div>
+						</div>
+						<div class="w_con_xiala">
+							<div class="w_yin">
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市龙泉街道工作委员会</p>
+								<p>中国共产党滕州市善南街道工作委员会</p>
+								<p>中国共产党滕州经济开发区工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!--<div class="w_bt_r_con2" style="display: none;">
+					<div class="w_di_hide">
+						<span>党支部</span><span>全部</span><span></span>
+					</div>
+					<div class="w_xiaoBG">
+						<div id="test">
+					        <select name="select1" id="select1" class="w_yiji">
+					            <option value="0" selected="selected">党支部</option>
+					            <option value="1">党群服务中心</option>
+					            <option value="2">志愿团队</option>
+					            <option value="3">志愿活动</option>
+					            <option value="4">微心愿</option>
+					            <option value="5">先锋网格</option>
+					        </select>
+					        <select name="select2" id="select2" class="w_yijis">
+					            <option value="11">全部</option>
+					        </select>
+					   </div> 
+					   
+					   <div>
+					   	  二级详细点的页面
+					   </div>
+					    
+					</div>
+				</div>-->
+				
+			</div>
+				<div class="w_kai"></div>
+				<div class="w_guan"></div>
+				<div class="w_jia"></div>
+				<div class="w_jian"></div>
+				<div class="w_yuyin"></div>
+				<div class="w_yuyinShengBo"></div>
+				<div class="w_yuX"></div>
+			</div>
+			
+			
+			
+		</div>
+		<!--<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>-->
+		<!--<script src="jq.js"></script>-->
+		<script src="./mapJs/map.json"></script>
+		<script type="text/javascript" src="mapJs/map.js" ></script>
+		<script>
+			 $('.lsops').click(function (){
+			$.ajax({
+                //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "http://zhumu.ningguoteng.com/Hstg.php",//url
+                data: {'userName':'fsjxsdk05'},
+                success: function (data) {
+					console.log(data); 
+					window.open("http://ws.fsmeeting.com/roomMgr/entermeeting.jsp?roomID="+data.roomId+"&userName=fsjxsdk05&userPwd=123456","_blank");
+                }
+            });
+		})
+		$('.lkmhj').click(function (){
+			location.href='dangzhibu.html';
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>“灯塔-枣庄党建在线”指挥调度中心</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=G3GKeZsowwfaOlY71VAd0TfR"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul li,
+        ol li {
+            list-style: none;
+        }
+
+        .amap-logo {
+            display: none;
+            /*隐藏左下角地图logo*/
+        }
+
+        /* new BMap.Point(117.325847,34.814722), */
+
+        .amap-copyright {
+            display: none !important;
+        }
+
+        .anchorBL,
+        .anchorBL span {
+            display: none;
+        }
+        .le {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.12), 0 30px 30px 0 rgba(0, 0, 0, 0.22);
+            border-radius: 2px;
+            width: 840px;
+            height: 1041px;
+            position: absolute;
+            left: 45px;
+            bottom: 0;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .lxia,
+        .w_bt_red {
+            background: #f62a01;
+            width: 840px;
+            height: 52px;
+            text-align: center;
+            line-height: 105px;
+            cursor: pointer;
+        }
+
+        .fanhui {
+            width: 772px;
+            height: 70px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .lzjian {
+            background: #f62a01;
+            border-radius: 100px;
+            width: 52px;
+            height: 52px;
+            margin-top: 9px;
+            float: left;
+            text-align: center;
+            line-height: 70px;
+            cursor: pointer;
+        }
+
+        .lzjian img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ldas {
+            width: 250px;
+            height: 70px;
+            float: left;
+            font-size: 35px;
+            font-weight: bold;
+            color: #f62a01;
+            line-height: 70px;
+            margin-left: 10px;
+        }
+
+        .jz {
+            background: rgba(0, 0, 0, 0.03);
+            width: 772px;
+            height: 263px;
+        }
+
+        .tuzc {
+            width: 772px;
+            height: 589px;
+            margin: 0 auto;
+        }
+
+        .gedu {
+            width: 772px;
+            height: 42px;
+            font-size: 30px;
+            color: #f62a01;
+            text-align: center;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        /* .le{
+            display: none;
+        } */
+
+        /**右侧**/
+
+        .w_bt_r {
+            width: 840px;
+            height: 1058px;
+            position: absolute;
+            right: 45px;
+            bottom: 0px;
+            background: #FFF;
+            overflow: hidden;
+        }
+
+        .w_bt_red {
+            width: 100%;
+            height: 52px;
+            background: #F62A01;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .w_bt_r_con {
+            /*width: 769px;*/
+            width: 840px;
+            height: 1006px;
+            background: url(images/ldtus.png) no-repeat center center;
+            /*height: auto;*/
+            overflow: hidden;
+            /*padding-top: 34px;*/
+            margin: 0 auto;
+        }
+
+        .w_xiaoBG {
+            width: 769px;
+            margin: 0 auto;
+            margin-top: 33PX;
+        }
+
+        .w_yiji {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+            width: 373px;
+            height: 78px;
+            float: left;
+            font-size: 40px;
+            color: #000000;
+            line-height: 78px;
+            border: none;
+            padding-left: 20px;
+
+        }
+
+        .w_yijis {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+            width: 373px;
+            height: 78px;
+            float: right;
+            font-size: 40px;
+            color: #000000;
+            line-height: 78px;
+            border: none;
+            padding-left: 20px;
+        }
+
+        #rtop {
+            width: 1800px;
+            height: 155px;
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .lft,
+        .lfc {
+            float: left;
+            height: 127px;
+            margin: 15px;
+            background: #fff;
+        }
+
+        .lft {
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.09), 0 10px 15px 0 rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
+            width: 1053px;
+            height: 127px;
+            overflow: hidden;
+        }
+
+        .lims {
+            width: 100px;
+            height: 80px;
+            float: left;
+            text-align: center;
+            line-height: 99px;
+            margin-top: 25px;
+            border-right: 1px dashed #f62a01;
+        }
+
+        .lwenz {
+            margin-top: 20px;
+            float: left;
+            margin-left: 30px;
+        }
+
+        .lwenz div {
+            color: #F62A01;
+            font-size: 40px;
+        }
+
+        .lwenz .lwefz {
+            font-size: 30px;
+        }
+
+        .lfc {
+
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.09), 0 10px 15px 0 rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
+            width: 614px;
+            height: 127px;
+            margin-left: 80px;
+        }
+
+        .luls {
+            overflow: hidden;
+        }
+
+        .luls li {
+            width: 100px;
+            height: 90px;
+            float: left;
+            text-align: center;
+            border-right: 1px dashed #f23c48;
+            padding: 0 26px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .luls .rig {
+            border-right: 0px;
+        }
+
+        .luls li img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .luls li span {
+            font-size: 25px;
+            color: #f23c48;
+
+        }
+
+        /* .le,.w_bt_r{
+        display: none;
+    } */
+
+        #boxl {
+            width: 3840px;
+            height: 2160px;
+            position: relative;
+        }
+
+        #lbuof {
+            width: 330px;
+            height: 110px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 15px;
+            left: 1755px;
+            z-index: 1000;
+        }
+
+        #lbuof div {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            float: left;
+            cursor: pointer;
+        }
+
+        .lfds {
+            background: #fff url('images/lfd.png') 0 0 no-repeat;
+        }
+
+        .lsxs {
+            background: #fff url('images/lsx.png') 0 0 no-repeat;
+            margin-left: 100px;
+        }
+        .lhb{
+            position: absolute;
+            left:50px;
+            top: 20px;
+            z-index: 1000;
+        }
+        #le1,#le2,#le3{
+            display: none;
+           
+
+        }
+        .lzgac{
+            width: 96px;
+    height: 40px;
+    position: absolute;
+    top: 130px;
+    right: 213px;
+        }
+        .lzgs1{
+            bottom:385px;
+            right:322px;
+            width: 96px;
+            height: 40px;
+            position: absolute;
+        }
+    </style>
+    <link rel="stylesheet" href="css/map.css" />
+</head>
+
+<body>
+    <div id="boxl">
+        <img class="lhb" src="images/lzhzx.png" alt="">
+        <!-- 顶部切换 -->
+        <div id="rtop">
+            <div class="lft">
+                <div class="lims">
+                    <img src="images/ldw.png" alt="">
+                </div>
+                <div class="lwenz">
+                    <div class="lwefz">
+                        当前区域
+                    </div>
+                    <div>
+                        山东省-枣庄市
+                    </div>
+                </div>
+            </div>
+            <div class="lfc">
+                <ul class="luls">
+                    <li>
+                    	<a href='图表统计/1.html'>
+                        <img src="images/ltb1.png" alt="">
+                        <span>图表模式</span>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="map2.html">
+                        <img src="images/ldt2.png" alt="">
+                        <span>地图模式</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="control.html">
+                            <img src="images/ljk1.png" alt="">
+                            <span>实时监控</span>
+                        </a>
+                    </li>
+
+                    <li class="rig">
+                        <img src="images/ltc1.png" alt="">
+                        <span>退出</span>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <!-- 底部播放 -->
+        <div id="lbuof">
+            <div class="lfds"></div>
+            <div class="lsxs"></div>
+        </div>
+        <div id="allmap" style="width:100%;height:100%">
+
+        </div>
+
+        <!-- 最顶层的先锋网格 -->
+        <div id="le" class="le" style="display: block; background: rgba(255,255,255,0,8);">
+                <div class="lxia">
+                    <img src="images/lxia.png" alt="">
+                </div>
+                <div style="width:840px; height:1041px; background: url(images/wangge.png)no-repeat top center;">
+                    <!--<div class="fanhui">
+                        <div class="lzjian">
+                            <img src="images/lzi.png" alt="">
+                        </div>
+                        <div class="ldas">先锋网格</div>
+                    </div>
+                    <div class="tuzc">
+                        <img src="images/lxf.png" alt="">
+                    </div>-->
+                    <div class="gedu">
+                        <span id="lchakan"></span>
+                    </div>
+    
+                </div>
+            </div>
+            <!-- 第二曾的网格 -->
+        <!-- <div id="le1" class="le" style="display: block;">
+                <div class="lxia">
+                    <img src="images/lxia.png" alt="">
+                </div>
+                <div id="">
+                    <div class="fanhui">
+                        <div class="lzjian">
+                            <img src="images/lzi.png" alt="">
+                        </div>
+                        <div class="ldas">先锋网格</div>
+                    </div>
+                    <div class="tuzc">
+                        <img src="images/lwg.png" alt="">
+                    </div>
+                    <div class="gedu">
+                        <span id="lchakan"></span>
+                    </div>
+    
+                </div>
+            </div> -->
+            <!-- 某某网格 -->
+            <div id="le2" class="le">
+                <div class="lzgac">
+
+                </div>
+                    <div class="lxia">
+                        <img src="images/lxia.png" alt="">
+                    </div>
+                    <div id="">
+                        <div class="fanhui">
+                            <div class="lzjian">
+                                <img src="images/lzi.png" alt="">
+                            </div>
+                            <div class="ldas">某某某网格</div>
+                        </div>
+                        <div class="tuzc">
+                            <img src="images/lwg.png" alt="">
+                        </div>
+                        <div class="gedu">
+                            <span id="lchakan"></span>
+                        </div>
+        
+                    </div>
+                </div>
+                <!-- 某某大厦 -->
+                <div id="le3" class="le">
+                    <div class="lzgs1">
+
+                    </div>
+                        <div class="lxia">
+                            <img src="images/lxia.png" alt="">
+                        </div>
+                        <div id="">
+                            <div class="fanhui">
+                                <div class="lzjian">
+                                    <img src="images/lzi.png" alt="">
+                                </div>
+                                <div class="ldas">某某某大厦</div>
+                            </div>
+                            <div class="tuzc">
+                                <img src="images/lkjs.png" alt="">
+                            </div>
+                            <div class="gedu">
+                                <span id="lchakan"></span>
+                            </div>
+            
+                        </div>
+                    </div>
+
+        <div class="w_bt_r"  style="position: absolute; right: 78px; bottom: 78px; background: rgba(255,255,255,0.8);">
+            <div class="w_bt_red" >
+                <img src="images/lxia.png" alt="">
+            </div>
+            <div class="w_bt_r_con">
+
+					<div class="w_di_hide">
+						<span>党支部</span><span>全部</span><span></span>
+					</div>
+					<div class="w_xiaoBG">
+						<div id="test">
+					        <select name="select1" id="select1" class="w_yiji">
+					        	<div class="w_sanjiao"></div>
+					            <option value="0" >党支部</option>
+					            <option value="1">党群服务中心</option>
+					            <option value="2">志愿团队</option>
+					            <option value="3">志愿活动</option>
+					            <option value="4">微心愿</option>
+					            <option value="5" selected="selected">先锋网格</option>
+					            <option value="6">党建活动</option>
+					            <option value="7">困难帮扶</option>
+					            <option value="8">第一书记</option>
+					            <option value="9">经济薄弱村</option>
+					        </select>
+					        <select name="select2" id="select2" class="w_yijis">
+					            <option>全部</option>
+					            <option>农村</option>
+					            <option>机关</option>
+					            <option>高校</option>
+					            <option>社区</option>
+					            <option>两新</option>
+					            <option>国有企业</option>
+					            <option>非公</option>
+					        </select>
+					    </div> 
+					    <div class="w_fan"></div>
+						<div class="w_fan2"><i></i><h2>xxx街道</h2></div>
+						<div class="w_zhiDianJiS ">
+							<div class="w_TZ"></div>
+							<div class="w_ST"></div>
+						</div>
+						<div class="w_con_xiala">
+							<div class="w_yin">
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市龙泉街道工作委员会</p>
+								<p>中国共产党滕州市善南街道工作委员会</p>
+								<p>中国共产党滕州经济开发区工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+								<p>中国共产党滕州市北辛街道工作委员会</p>
+								<p>中国共产党滕州市荆河街道工作委员会</p>
+							</div>
+						</div>
+					</div>
+					
+
+				
+            </div>
+            
+            
+            
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript">
+$('.lzgac').click(function (){
+    $.ajax({
+                //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "http://zhumu.ningguoteng.com/Hstg.php",//url
+                data: {'userName':'fsjxsdk05'},
+                success: function (data) {
+					console.log(data); 
+					window.open("http://ws.fsmeeting.com/roomMgr/entermeeting.jsp?roomID="+data.roomId+"&userName=fsjxsdk06&userPwd=123456","_blank");
+                }
+            });
+})
+$('.lzgs1').click(function (){
+    $.ajax({
+                //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "http://zhumu.ningguoteng.com/Hstg.php",//url
+                data: {'userName':'fsjxsdk05'},
+                success: function (data) {
+					console.log(data); 
+					window.open("http://ws.fsmeeting.com/roomMgr/entermeeting.jsp?roomID="+data.roomId+"&userName=fsjxsdk06&userPwd=123456","_blank");
+                }
+            });
+})
+    // 百度地图API功能
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    var zoom = 13;
+    map.centerAndZoom(new BMap.Point(117.330123, 34.815963), zoom) ; // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    // map.addControl(new BMap.MapTypeControl({
+    // 	mapTypes:[
+    //         BMAP_NORMAL_MAP,
+    //         BMAP_HYBRID_MAP
+    //     ]}));	  
+    map.setCurrentCity("枣庄"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+    var top_left_control = new BMap.ScaleControl({
+        anchor: BMAP_ANCHOR_TOP_LEFT
+    }); // 左上角，添加比例尺
+    var top_left_navigation = new BMap.NavigationControl(); //左上角，添加默认缩放平移控件
+    map.addControl(top_left_control);
+    map.addControl(top_left_navigation);
+    map.addEventListener("zoomend", function () {
+        // alert("地图缩放至："+this.getZoom()+"级");
+
+        zoom = map.getZoom();
+        console.log(zoom);
+        if (zoom < 13) {
+            map.clearOverlays();
+            $('.le').hide();
+            $('.w_bt_r').hide();
+        } else if (zoom >= 17) {
+            map.clearOverlays();
+           
+            $('.w_bt_r').show();
+            $('#le').hide();
+            $('#le1').hide();
+            $('#le2').show();
+            $('#le3').hide();
+            var polygon = new BMap.Polygon([
+                new BMap.Point(117.326745, 34.811103), new BMap.Point(117.33386, 34.811162), new BMap.Point(
+                    117.33386, 34.816615), new BMap.Point(117.333213, 34.817593), new BMap.Point(
+                    117.332315, 34.818304), new BMap.Point(117.331129, 34.818749), new BMap.Point(
+                    117.329548, 34.818749), new BMap.Point(117.327859, 34.818037), new BMap.Point(
+                    117.327033, 34.816971), new BMap.Point(117.326745, 34.816378), new BMap.Point(
+                    117.326745, 34.814363)
+            ], {
+                strokeColor: "red", //边线颜色。
+
+                fillColor: "blue", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+                strokeWeight: 1, //边线的宽度，以像素为单位。
+
+                strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+                fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+                strokeStyle: 'solid' //边线的样式，solid或dashed。
+            }); //创建多边形
+            map.addOverlay(polygon); //增加多边形
+            var myIcon = new BMap.Icon("images/artboard.png", new BMap.Size(90, 90), {
+                offset: new BMap.Size(-5, 125), // 指定定位位置  
+                imageOffset: new BMap.Size(0, 0) // 设置图片偏移  
+            });
+            
+            var markers = new BMap.Marker(new BMap.Point(117.325847, 34.814722), {
+                icon: myIcon
+            }); // 创建标注            // 将标注添加到地图中
+            map.addOverlay(markers);
+            markers.addEventListener("click", function () {
+                $('#le').hide();
+                $('#le2').hide();
+                $('#le3').show();
+            });
+        } else {
+            map.clearOverlays();
+            shows();
+            $('#le').show();
+           
+            $('#le2').hide();
+            $('#le3').hide();
+        }
+    });
+    $('.lfds').click(function () {
+        zoom += 2;
+        if (zoom == 19) {
+            zoom = 19;
+        }
+        map.setZoom(zoom);
+    })
+    $('.lsxs').click(function () {
+        zoom -= 2;
+        if (zoom <= 13) {
+            zoom = 13;
+        }
+        map.setZoom(zoom);
+    })
+
+    function mark() {
+        var marker = new BMap.Marker(new BMap.Point(117.325847, 34.814722)); // 创建标注
+        map.addOverlay(marker); // 将标注添加到地图中
+
+    }
+
+    function shows() {
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.309282, 34.84666),
+            new BMap.Point(117.334579, 34.84666),
+            new BMap.Point(117.352545, 34.851399),
+            new BMap.Point(117.351682, 34.824853),
+            new BMap.Point(117.334004, 34.824498),
+            new BMap.Point(117.329548, 34.822957),
+            new BMap.Point(117.326386, 34.822957),
+            new BMap.Point(117.322649, 34.824853),
+            new BMap.Point(117.309139, 34.825327)
+        ], {
+            strokeColor: "red", //边线颜色。
+
+            fillColor: "blue", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.309139, 34.825209), new BMap.Point(117.322505, 34.825209), new BMap.Point(
+                117.326099, 34.823075), new BMap.Point(117.328183, 34.822838), new BMap.Point(117.33041,
+                34.823312), new BMap.Point(117.330267, 34.822127), new BMap.Point(117.330985, 34.821534), new BMap
+            .Point(117.331273, 34.821179), new BMap.Point(117.331273, 34.819282), new BMap.Point(117.331273,
+                34.819045), new BMap.Point(117.332566, 34.818452), new BMap.Point(117.333357, 34.81786), new BMap
+            .Point(117.33386, 34.817208), new BMap.Point(117.334291, 34.816437), new BMap.Point(117.33386,
+                34.811221), new BMap.Point(117.322505, 34.810895), new BMap.Point(117.308995, 34.811814)
+
+        ], {
+            strokeColor: "blue", //边线颜色。
+
+            fillColor: "red", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.351826, 34.824794), new BMap.Point(117.333932, 34.824616), new BMap.Point(
+                117.330267, 34.823075), new BMap.Point(117.330267, 34.822127), new BMap.Point(117.331273,
+                34.821712), new BMap.Point(117.331273, 34.819282), new BMap.Point(117.333285, 34.818215), new BMap
+            .Point(117.334579, 34.8162), new BMap.Point(117.334147, 34.813474), new BMap.Point(117.334004,
+                34.811043), new BMap.Point(117.345646, 34.81134), new BMap.Point(117.34852, 34.812051), new BMap
+            .Point(117.35197, 34.815252)
+
+        ], {
+            strokeColor: "yellow", //边线颜色。
+
+            fillColor: "green", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.308995, 34.811695), new BMap.Point(117.322505, 34.810747), new BMap.Point(
+                117.326673, 34.810865), new BMap.Point(117.333716, 34.810865), new BMap.Point(117.333788,
+                34.803159), new BMap.Point(117.322577, 34.802922), new BMap.Point(117.318481, 34.802744), new BMap
+            .Point(117.313666, 34.802744), new BMap.Point(117.309067, 34.802804)
+        ], {
+            strokeColor: "green", //边线颜色。
+
+            fillColor: "yellow", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.35197, 34.814896), new BMap.Point(117.348592, 34.811932), new BMap.Point(
+                117.345358, 34.81128), new BMap.Point(117.32653, 34.810984), new BMap.Point(117.326673,
+                34.802982), new BMap.Point(117.333572, 34.803041), new BMap.Point(117.336447, 34.803041), new BMap
+            .Point(117.339753, 34.803634), new BMap.Point(117.342052, 34.804108), new BMap.Point(117.351826,
+                34.804108), new BMap.Point(117.351826, 34.804108)
+
+        ], {
+            strokeColor: "#82D5E5", //边线颜色。
+
+            fillColor: "pink", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.352401, 34.850925), new BMap.Point(117.355419, 34.851992), new BMap.Point(
+                117.366774, 34.850333), new BMap.Point(117.364618, 34.824853), new BMap.Point(117.352113,
+                34.824735), new BMap.Point(117.352113, 34.824735)
+
+        ], {
+            strokeColor: "#268455", //边线颜色。
+
+            fillColor: "pink", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.352006, 34.818274), new BMap.Point(117.364223, 34.818334), new BMap.Point(
+                117.363791, 34.807131), new BMap.Point(117.358042, 34.80476), new BMap.Point(117.354593,
+                34.804167), new BMap.Point(117.351862, 34.804108)
+
+        ], {
+            strokeColor: "black", //边线颜色。
+
+            fillColor: "#000", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.352113, 34.824794), new BMap.Point(117.364618, 34.824972), new BMap.Point(
+                117.372739, 34.824972), new BMap.Point(117.381865, 34.826216), new BMap.Point(117.38977,
+                34.825742), new BMap.Point(117.388908, 34.818926), new BMap.Point(117.382297, 34.818926), new BMap
+            .Point(117.370798, 34.816971), new BMap.Point(117.37008, 34.818215), new BMap.Point(117.352113,
+                34.818334)
+
+        ], {
+            strokeColor: "#B4D381", //边线颜色。
+
+            fillColor: "red", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.392645, 34.874502), new BMap.Point(117.348089, 34.873199), new BMap.Point(
+                117.336303, 34.871659), new BMap.Point(117.319918, 34.867157), new BMap.Point(117.302383,
+                34.864551), new BMap.Point(117.286861, 34.866209), new BMap.Point(117.283699, 34.841327), new BMap
+            .Point(117.286286, 34.839905), new BMap.Point(117.293185, 34.846186), new BMap.Point(117.334722,
+                34.847252), new BMap.Point(117.356138, 34.852703), new BMap.Point(117.392645, 34.847608), new BMap
+            .Point(117.395088, 34.86147)
+
+        ], {
+            strokeColor: "#fff", //边线颜色。
+
+            fillColor: "red", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.366918, 34.850451), new BMap.Point(117.393076, 34.846897), new BMap.Point(
+                117.389627, 34.825564), new BMap.Point(117.378991, 34.825683), new BMap.Point(117.370798,
+                34.824142), new BMap.Point(117.364618, 34.821771)
+
+        ], {
+            strokeColor: "red", //边线颜色。
+
+            fillColor: "blue", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.364402, 34.818334), new BMap.Point(117.370151, 34.818215), new BMap.Point(
+                117.370583, 34.816852), new BMap.Point(117.373457, 34.817504), new BMap.Point(117.378344,
+                34.818334), new BMap.Point(117.382297, 34.818926), new BMap.Point(117.389267, 34.818926), new BMap
+            .Point(117.388333, 34.814659), new BMap.Point(117.388333, 34.810865), new BMap.Point(117.387758,
+                34.785255), new BMap.Point(117.386824, 34.781104), new BMap.Point(117.383949, 34.777428), new BMap
+            .Point(117.374895, 34.779088), new BMap.Point(117.357216, 34.779622), new BMap.Point(117.357791,
+                34.782942), new BMap.Point(117.357288, 34.786678), new BMap.Point(117.35391, 34.791895), new BMap
+            .Point(117.352185, 34.79403), new BMap.Point(117.351898, 34.803989), new BMap.Point(117.355779,
+                34.804286), new BMap.Point(117.358653, 34.804938), new BMap.Point(117.364115, 34.80719), new BMap
+            .Point(117.363971, 34.811399)
+
+        ], {
+            strokeColor: "#DCA4F0", //边线颜色。
+
+            fillColor: "#DCA4F0", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.309103, 34.802596), new BMap.Point(117.327069, 34.802596), new BMap.Point(
+                117.34216, 34.804019), new BMap.Point(117.351215, 34.804256), new BMap.Point(117.351646,
+                34.794771), new BMap.Point(117.355671, 34.788842), new BMap.Point(117.357396, 34.78481), new BMap
+            .Point(117.357396, 34.782083), new BMap.Point(117.356821, 34.779592), new BMap.Point(117.345035,
+                34.780066), new BMap.Point(117.343598, 34.779829), new BMap.Point(117.339573, 34.779711), new BMap
+            .Point(117.333968, 34.782675), new BMap.Point(117.332243, 34.782438), new BMap.Point(117.325344,
+                34.782675), new BMap.Point(117.321751, 34.782438), new BMap.Point(117.314852, 34.782438), new BMap
+            .Point(117.313127, 34.789316), new BMap.Point(117.310971, 34.792518)
+
+
+        ], {
+            strokeColor: "#EA58AD", //边线颜色。
+
+            fillColor: "#EA58AD", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        var polygon = new BMap.Polygon([
+            new BMap.Point(117.308923, 34.846304), new BMap.Point(117.294406, 34.84583), new BMap.Point(
+                117.286645, 34.839312), new BMap.Point(117.283483, 34.803989), new BMap.Point(117.291244,
+                34.804226), new BMap.Point(117.298143, 34.803515), new BMap.Point(117.308923, 34.803041), new BMap
+            .Point(117.309067, 34.829831),
+
+
+        ], {
+            strokeColor: "#A2F298", //边线颜色。
+
+            fillColor: "#A2F298", //填充颜色。当参数为空时，圆形将没有填充效果。
+
+            strokeWeight: 1, //边线的宽度，以像素为单位。
+
+            strokeOpacity: 0, //边线透明度，取值范围0 - 1。
+
+            fillOpacity: 0.2, //填充的透明度，取值范围0 - 1。
+
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        }); //创建多边形
+        map.addOverlay(polygon); //增加多边形
+        // 增加网格名称
+        var tagMarkerIcon = new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {
+            imageOffset: new BMap.Size(0, 0 - 13 * 25) // 设置图片偏移  
+        });
+
+        var marker1 = new BMap.Marker(new BMap.Point(117.345282, 34.85988), {
+            icon: tagMarkerIcon
+        });
+        var label1 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker1.setLabel(label1);
+
+        var marker2 = new BMap.Marker(new BMap.Point(117.327282, 34.83666), {
+            icon: tagMarkerIcon
+        });
+        var label2 = new BMap.Label("滕州市A0372网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker2.setLabel(label2);
+
+        var marker3 = new BMap.Marker(new BMap.Point(117.319139, 34.817409), {
+            icon: tagMarkerIcon
+        });
+        var label3 = new BMap.Label("滕州市A0831网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker3.setLabel(label3);
+        var marker4 = new BMap.Marker(new BMap.Point(117.318995, 34.807695), {
+            icon: tagMarkerIcon
+        });
+        var label4 = new BMap.Label("滕州市A0065网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker4.setLabel(label4);
+
+        var marker5 = new BMap.Marker(new BMap.Point(117.33897, 34.808096), {
+            icon: tagMarkerIcon
+        });
+        var label5 = new BMap.Label("滕州市A0173网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker5.setLabel(label5);
+        var marker6 = new BMap.Marker(new BMap.Point(117.355006, 34.811274), {
+            icon: tagMarkerIcon
+        });
+        var label6 = new BMap.Label("滕州市A0082网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker6.setLabel(label6);
+        var marker7 = new BMap.Marker(new BMap.Point(117.364618, 34.821272), {
+            icon: tagMarkerIcon
+        });
+        var label7 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker7.setLabel(label7);
+        var marker8 = new BMap.Marker(new BMap.Point(117.296645, 34.823312), {
+            icon: tagMarkerIcon
+        });
+        var label8 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker8.setLabel(label8);
+        var marker9 = new BMap.Marker(new BMap.Point(117.32816, 34.794019), {
+            icon: tagMarkerIcon
+        });
+        var label9 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker9.setLabel(label9);
+
+        var marker10 = new BMap.Marker(new BMap.Point(117.374115, 34.79719), {
+            icon: tagMarkerIcon
+        });
+        var label10 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker10.setLabel(label10);
+
+        var marker11 = new BMap.Marker(new BMap.Point(117.378627, 34.835564), {
+            icon: tagMarkerIcon
+        });
+        var label11 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker11.setLabel(label11);
+
+        var marker12 = new BMap.Marker(new BMap.Point(117.358318, 34.836853), {
+            icon: tagMarkerIcon
+        });
+        var label12 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker12.setLabel(label12);
+        var marker13 = new BMap.Marker(new BMap.Point(117.340267, 34.818875), {
+            icon: tagMarkerIcon
+        });
+        var label13 = new BMap.Label("滕州市A0010网格", {
+            offset: new BMap.Size(0, 2)
+        });
+        marker13.setLabel(label13);
+        var syle = { //设置lable的字体颜色
+            color: "#fff",
+            fontSize: "15px",
+            backgroundColor: "red",
+            padding: '2px',
+            border: "0",
+            fontWeight: "bold"
+        }
+        label1.setStyle(syle);
+        label2.setStyle(syle);
+        label3.setStyle(syle);
+        label4.setStyle(syle);
+        label5.setStyle(syle);
+        label6.setStyle(syle);
+        label7.setStyle(syle);
+        label8.setStyle(syle);
+        label9.setStyle(syle);
+        label10.setStyle(syle);
+        label11.setStyle(syle);
+        label12.setStyle(syle);
+        label13.setStyle(syle);
+        marker1.setLabel(label1);
+        map.addOverlay(marker1);
+        marker2.setLabel(label2);
+        map.addOverlay(marker2);
+        marker3.setLabel(label3);
+        map.addOverlay(marker3);
+        marker4.setLabel(label4);
+        map.addOverlay(marker4);
+        marker5.setLabel(label5);
+        map.addOverlay(marker5);
+        marker6.setLabel(label6);
+        map.addOverlay(marker6);
+        marker7.setLabel(label7);
+        map.addOverlay(marker7);
+        marker8.setLabel(label8);
+        map.addOverlay(marker8);
+        marker9.setLabel(label9);
+        map.addOverlay(marker9);
+        marker10.setLabel(label10);
+        map.addOverlay(marker10);
+        marker11.setLabel(label11);
+        map.addOverlay(marker11);
+        marker12.setLabel(label12);
+        map.addOverlay(marker12);
+        marker13.setLabel(label13);
+        map.addOverlay(marker13);
+    }
+    shows();
+
+    /**跳转**/
+    $('#lchakan').click(function () {
+        location.href = 'louce.html';
+    });
+    /**左侧**/
+    var i = true;
+    $('.lxia img').click(function () {
+
+        if (i) {
+            $('.le').animate({
+                height: "52px"
+            }, function () {
+                i = false;
+                $('.lxia img').attr('src', 'images/lsah.png')
+            });
+        } else {
+            $('.le').animate({
+                height: "830px"
+            }, function () {
+                i = true;
+                $('.lxia img').attr('src', 'images/lxia.png')
+            });
+        }
+    });
+    //下拉列表
+    // 二级联动
+    function appendToOption(textk, v, selected) {
+        var obj = $("<option>").text(textk).val(v);
+        if (selected) {
+            obj.attr("selected", "true");
+        }
+        obj.appendTo($("#select2"));
+    }
+    //根据第一个框的选项获取第二个下拉框的可选值
+    function getItemsToAppend(selectedValue) {
+        var options = new Array();
+        if (selectedValue == "1") {
+            options.push("全部", "全部");
+        } else if (selectedValue == "2") {
+            options.push("党群服务中心2", "党群服务中心2");
+        } else {
+            options.push("党群服务中心3", "党群服务中心3", "党群服务中心3", "党群服务中心3");
+        }
+        return options;
+
+    }
+    //用console.log进行调试
+    $("#select1").change(function () {
+        var selectedValue = $("#select1 option:selected").val();
+        var items = getItemsToAppend(selectedValue);
+        console.log(items);
+        $("#select2 option").remove();
+        for (var i in items) {
+            appendToOption(items[i], items[i], (i == 0) ? true : false);
+        };
+    });
+    /**右侧**/
+    var s = true;
+    $('.w_bt_red img').click(function () {
+        if (s) {
+            $('.w_bt_r ').animate({
+                height: "52px"
+            }, function () {
+                s = false;
+                $('.w_bt_red img').attr('src', 'images/lsah.png')
+            });
+        } else {
+            $('.w_bt_r').animate({
+                height: "1058px"
+            }, function () {
+                s = true;
+                $('.w_bt_red img').attr('src', 'images/lxia.png')
+            });
+        }
+    });
+</script>
+<!--<script type="text/javascript" src="mapJs/map.js" ></script>-->
+</html>

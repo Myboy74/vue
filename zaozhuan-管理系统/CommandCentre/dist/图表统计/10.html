@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+                *{
+            margin: 0;
+            padding: 0;
+        }
+       .dangyuan{
+        background: url(images/11.png) no-repeat;
+        width: 3840px;
+        height: 2160px;
+        position: relative;
+    }
+    .iconhide{
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0);
+        position: absolute;
+    }
+    .chart01{
+        top: 20.5%;
+        left: 17.9%;
+    }
+    .chart02{
+        top: 13%;
+        left: 32.8%;
+    }
+    .chart03{
+        top: 13.1%;
+        left: 47.7%;
+    }
+    .chart04{
+        top: 12.8%;
+        left: 62.3%;
+    }
+    .chart05{
+        top: 13.3%;
+        left: 96.4%;
+    }
+    .chart06{
+        top: 43.3%;
+        left: 62.5%;
+    }
+    .chart07{
+        top: 43.3%;
+        left: 96.4%;
+    }
+    .return{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background:rgba(255,255,255,0);
+        position: absolute;
+        top: 4%;
+        left: 74.2%;
+    }
+    .soa{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background:rgba(255,255,255,0);
+        position: absolute;
+        top: 4%;
+        left: 78.2%;
+    }
+    #box{
+        display: none;
+        width:780px;
+        height:1150px;
+        position: absolute;
+        background:#fff;
+        top: 9.8%;
+        left: 68.5%;
+        padding: 30px;
+    }
+    .trigon{
+        width:0px;
+        height:0px;
+        display: none;
+        border-top:30px solid rgba(0,0,0,0);
+        border-right:30px solid  rgba(0,0,0,0);
+        border-bottom:30px solid #fff;
+        border-left:30px solid  rgba(0,0,0,0);
+        margin-bottom:10px;
+        position: absolute;
+        left: 78.2%;
+        top: 7%;
+    }
+    .box_title{
+        margin-bottom: 30px;
+    }
+    .box_title input{
+        border:0;
+        height:78px; 
+        width: 545px;
+        color: #c4c4c4;
+        padding-left: 5%;
+        font-size: 34px;
+        background: #F2F2F2;
+        vertical-align: middle;
+    }
+    .box_title img{
+        vertical-align: middle;
+    }
+    #box h3{
+        height: 90px;
+        padding:0 5%;
+        color: #4D4D4D;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 90px;
+
+    }
+    .clearfix:after{content: "\200B";display: block;height: 0;clear: both;}
+    .citymenu li{
+        list-style: none;
+        width: 190px;
+        height: 78px;
+        line-height: 78px;
+        background: #f2f2f2;
+        float: left;
+        color: #4D4D4D;
+        margin: 30px 30px 30px 10px;
+        padding:0 15px;
+        font-size: 34px;
+    }
+    .cityactive{
+        color: #fff !important;
+        background: #f23c48 !important;
+    }
+    .citymenu li i{
+        float: right
+    }
+    .menubar li{
+        color: #4D4D4D;
+        height: 78px;
+        line-height: 78px;
+        background: #f2f2f2;
+        margin-bottom: 30px;
+        padding-left: 5%;
+        font-size: 34px;
+    }
+    .menuhide{
+        display: none;
+    }
+    .menuactive li{
+        background: #f2f2f2;
+        height: 78px;
+        line-height: 78px;
+        font-size: 34px;
+    }
+    .btn{
+        display: inline-block;
+        padding: 3% 10%;
+        color: #fff;
+        background: #f23c48;
+        border-radius: 10px;
+        font-size: 34px;
+    }
+    .btnclass{
+        text-align: center;
+        margin-top: 10%;
+    }
+    li{
+            list-style: none;
+        }
+        .bgcolor{
+            width: 3840px;
+        height: 2160px;
+        background: rgba(0,0,0,0.7);
+        display: none;
+        position: absolute;
+
+        }
+        .w_ditu{
+        	display: block;
+        	width: 82px;
+        	height: 82px;
+        	position: absolute;
+        	top: 78px;
+        	right: 412px;
+        }
+        .w_jiankong{
+        	display: block;
+        	width: 82px;
+        	height: 82px;
+        	position: absolute;
+        	top: 78px;
+        	right: 256px;
+        }
+        .w_yu{
+        	width: 620px;
+        	height: 98px;
+        	background: url(../img/mapImg/music.jpg) no-repeat center center;
+        	background-size: 100% 100%;
+        	position: absolute;
+        	right: 220px;
+        	top: 10px;
+        	display: none;
+        }
+    </style>
+ <script src="js/jquery.min.js"></script>
+ <script>
+     $(function() {
+         $('.chart01').click(function(){
+             var a = 1;
+         sessionStorage.setItem('chart01',a)
+             window.location.href="one.html"
+         })
+         $('.chart02').click(function(){
+             var b = 2;
+         sessionStorage.setItem('chart02',b)
+             window.location.href="one.html"
+         })
+         $('.chart03').click(function(){
+             var b = 3;
+         sessionStorage.setItem('chart03',b)
+             window.location.href="one.html"
+         })
+         $('.chart04').click(function(){
+             var b = 4;
+         sessionStorage.setItem('chart04',b)
+             window.location.href="one.html"
+         })
+         $('.chart05').click(function(){
+             var b = 5;
+         sessionStorage.setItem('chart05',b)
+             window.location.href="one.html"
+         })
+         $('.chart06').click(function(){
+             var b = 6;
+         sessionStorage.setItem('chart06',b)
+             window.location.href="one.html"
+         })
+         $('.chart07').click(function(){
+             var b = 7;
+         sessionStorage.setItem('chart07',b)
+             window.location.href="one.html"
+         })      
+         $('.return').click(function(){
+             window.location.href="index.html"
+         }) 
+         $('.soa').click(function(){
+           
+            $('.bgcolor').show();
+            $('.trigon').show();
+             $('#box').slideDown();
+             
+         }) 
+         $('.btn').click(function(){
+           
+            $('.bgcolor').hide();
+            $('.trigon').hide();
+             $('#box').slideUp();
+             
+         })
+         $('.citymenu li').click(function(){
+    $(this).addClass('cityactive').siblings().removeClass('cityactive')
+    var sum=$(this).index();
+    $('.menu .menubar').eq(sum).stop(true,true).show().siblings('.menubar').hide()
+     })
+     })
+ </script>
+</head>
+<body>
+    <div class="dangyuan">
+    	<a class="w_ditu" href="../map2.html"></a>
+    	<a class="w_jiankong" href="../control.html"></a>
+        <div class="chart01 iconhide"></div>
+        <div class="chart02 iconhide"></div>
+        <div class="chart03 iconhide"></div>
+        <div class="chart04 iconhide"></div>
+        <div class="chart05 iconhide"></div>
+        <div class="chart06 iconhide"></div>
+        <div class="chart07 iconhide"></div>
+        <div class="return"></div>
+        <div class="soa"></div>
+        <div class="bgcolor">
+                <i class="trigon"></i>
+                <div id="box" >
+                    <div class="box_title">
+                        <input type="text" placeholder="输入内容...">
+                        <img src="images/jing.png" class="w_yuhide"><img src="images/mak2.png" class="w_yuyins" style="margin-left:30px;">
+                    	<div class="w_yu"></div>
+                    </div>
+                    <h3>枣庄市</h3>
+                    <div>
+                        
+                    </div>
+                    <ul class="citymenu clearfix">
+                        <li class="cityactive">滕州市<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                        <li>市中区<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                        <li>薛城区<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                        <li>山亭区<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                        <li>峄城区<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                        <li>台儿庄<i class="icon iconfont icon-jiantouarrow487"></i></li>
+                    </ul>
+                    <div class="menu">
+                        <ul class="menubar">
+                            <li>中国共产党滕州市北辛街道工作委员会</li>
+                            <li>中国共产党滕州市荆河街道工作委员会</li>
+                            <li>中国共产党滕州市龙泉街道工作委员会</li>
+                            <li>中国共产党滕州市善南街道工作委员会</li>
+                            <li>中国共产党滕州经济开发区工作委员会</li>
+                        </ul>
+                        <ul class="menubar menuhide">
+                            <li>中共枣庄市市中区光明路街道工作委员会</li>
+                            <li>中共枣庄市市中区矿区街道工作委员会</li>
+                            <li>中共枣庄市市中区龙山路街道工作委员会</li>
+                            <li>中共枣庄市市中区中心街街道工作委员会</li>
+                            <li>中共枣庄市市中区垎塔埠街道工作委员会</li>
+                        </ul>
+                        <ul class="menubar menuhide">
+                            <li>中共枣庄市薛城区常庄镇委员会</li>
+                            <li>中共枣庄市薛城区周营镇委员会</li>
+                            <li>中共枣庄市薛城区巨山街道筹备处工作委员会</li>
+                            <li>中共枣庄市薛城区临城街道工作委员会</li>
+                            <li>中共枣庄市薛城区邹坞镇委员会</li>
+                        </ul>
+                        <ul class="menubar menuhide">
+                            <li>中共枣庄市山亭区冯卯镇委员会</li>
+                            <li>中共枣庄市山亭区店子镇委员会</li>
+                            <li>中共枣庄市山亭区水泉镇委员会</li>
+                            <li>中共枣庄市山亭区徐庄镇委员会</li>
+                            <li>中共枣庄市山亭区凫城镇委员会</li>
+                        </ul>
+                        <ul class="menubar menuhide">
+                            <li>中共枣庄市峄城区峨山镇委员会</li>
+                            <li>中共枣庄市峄城区吴林街道工作委员会</li>
+                            <li>中共枣庄市峄城区榴园镇委员会</li>
+                            <li>中共枣庄市峄城区阴平镇委员会</li>
+                            <li>中共枣庄市峄城区古邵镇委员会</li>
+                        </ul>
+                        <ul class="menubar menuhide">
+                            <li>中共枣庄市台儿庄区邳庄镇委员会</li>
+                            <li>中共产党枣庄市台儿庄区运河街道工作委员会</li>
+                            <li>中共枣庄市台儿庄区泥沟镇委员会</li>
+                            <li>中共枣庄市台儿庄区委区直机关工作委员会</li>
+                            <li>中共枣庄市台儿庄区经济和信息化局委员会</li>
+                        </ul>
+                    </div>
+                    <div class="btnclass"><a class="btn">确定</a></div>
+                </div>
+        </div>
+    </div>
+</body>
+<script>
+	$('.w_yuyins').click(function(){
+		$('.w_yu').show();
+	})
+	$('.w_yuhide').click(function(){
+		$('.w_yu').hide();
+	})
+</script>
+</html>

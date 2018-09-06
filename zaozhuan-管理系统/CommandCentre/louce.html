@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 20px;
+            overflow: scroll;
+            background: #f0f0ef
+        }
+    #lsbox{
+        width: 3840px;
+        height: 2160px;
+        overflow: hidden;
+        padding:140px;
+        position: relative; 
+    }
+    .mks{
+        width: 772px;
+        height: 2160px;
+        float: left;
+        position: relative;
+    }
+    #lsbox h1{
+      color:#f62a01;
+      font-size: 50px;
+
+    }
+    #fl,.fls{
+        float: left;
+    }
+    .fls{
+        margin-left:250px;
+    }
+    #lcolse{
+        font-size: 35px;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius:5%;
+        color: #f62a01;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+
+    }
+    </style>
+</head>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<body>
+        <div id="lsbox">
+            <div id="fl">
+                <h1>某某某大厦</h1>
+                <div class="mks">
+                    <div class="">
+
+                    </div>
+                    <img src="images/lou1.png" alt="">
+                </div>     
+            </div>
+            <div class="fls ">
+                <img src="images/lou2.png" alt="">
+            </div>
+            <div id="lcolse">
+                返回
+            </div>
+        </div>
+</body>
+<script>
+    $('#lcolse').click(function (){
+        location.href='index2.html';
+    })
+</script>
+</html>
